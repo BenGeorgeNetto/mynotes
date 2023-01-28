@@ -43,7 +43,8 @@ class _LoginViewState extends State<LoginView> {
             keyboardType: TextInputType.emailAddress,
             enableSuggestions: false,
             autocorrect: false,
-            decoration: const InputDecoration(hintText: "Enter your email here"),
+            decoration:
+                const InputDecoration(hintText: "Enter your email here"),
           ),
           TextField(
             controller: _password,
@@ -61,9 +62,15 @@ class _LoginViewState extends State<LoginView> {
                 await Firebase.initializeApp(
                   options: DefaultFirebaseOptions.currentPlatform,
                 );
-                final userCredential = await FirebaseAuth.instance
-                    .signInWithEmailAndPassword(email: email, password: password);
-                devtools.log(userCredential.toString());
+                final userCredential =
+                    await FirebaseAuth.instance.signInWithEmailAndPassword(
+                  email: email,
+                  password: password,
+                );
+                Navigator.of(context).pushNamedAndRemoveUntil(
+                  '/notes/',
+                  (route) => false,
+                );
               } on FirebaseAuthException catch (e) {
                 if (e.code == "user-not-found") {
                   devtools.log("User not found");
@@ -83,7 +90,8 @@ class _LoginViewState extends State<LoginView> {
           ),
           TextButton(
               onPressed: () {
-                Navigator.of(context).pushNamedAndRemoveUntil('/register/', (route) => false);
+                Navigator.of(context)
+                    .pushNamedAndRemoveUntil('/register/', (route) => false);
               },
               child: const Text("Not registered yet? Register here!"))
         ],
