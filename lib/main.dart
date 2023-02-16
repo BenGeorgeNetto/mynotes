@@ -16,10 +16,30 @@ import 'package:mynotes/views/forgot_password_view.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MaterialApp(
-    title: 'Flutter Demo',
-    theme: ThemeData(
-      primarySwatch: Colors.blue,
-    ),
+    title: 'My Notes',
+      theme: ThemeData(
+        brightness: Brightness.dark,
+        scaffoldBackgroundColor: const Color(0xFF11001c),
+        appBarTheme: const AppBarTheme(
+          backgroundColor: Color(0xFF3a015c),
+        ),
+        popupMenuTheme: const PopupMenuThemeData(
+          color: Color(0xFF290025),
+          shadowColor: Color(0xFF4f0147),
+          elevation: 4.0,
+        ),
+        dialogTheme: const DialogTheme(
+          backgroundColor: Color(0xFF290025),
+          elevation: 8.0,
+        ),
+        cardTheme: const CardTheme(
+          elevation: 8.0,
+          shape: RoundedRectangleBorder(
+
+          ),
+          color: Color(0xFF35012c),
+        )
+      ),
     home: BlocProvider<AuthBloc>(
       create: (context) => AuthBloc(FirebaseAuthProvider()),
       child: const HomePage(),
