@@ -126,9 +126,10 @@ class _CreateUpdateNoteViewState extends State<CreateUpdateNoteView> {
                 );
               default:
                 return const Center(
-                    child: Center(
-                  child: CircularProgressIndicator(),
-                ));
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
             }
           },
         ),

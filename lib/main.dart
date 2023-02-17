@@ -80,7 +80,11 @@ class HomePage extends StatelessWidget {
           return const RegisterView();
         } else {
           return const Scaffold(
-            body: CircularProgressIndicator(),
+            body: Center(
+              child: Center(
+                child: CircularProgressIndicator(),
+              ),
+            ),
           );
         }
       },
